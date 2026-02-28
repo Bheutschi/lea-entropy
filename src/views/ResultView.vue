@@ -246,7 +246,7 @@ onMounted(() => {
   visibility: hidden;
   opacity: 0;
   width: max-content;
-  max-width: 250px;
+  max-width: min(250px, 80vw); /* ← ne dépasse pas 80% du viewport */
   background-color: #333333;
   color: #ffffff;
   text-align: center;
@@ -278,6 +278,21 @@ onMounted(() => {
 .tooltip-container:focus .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .tooltip-text {
+    position: fixed;
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 85vw;
+  }
+
+  .tooltip-text::after {
+    display: none;
+  }
 }
 
 .result {
