@@ -81,7 +81,7 @@ onMounted(() => {
 function getGlobalIndex(categoryIndex: number, itemIndex: number): number {
   let count = 0
   for (let i = 0; i < categoryIndex; i++) {
-    count += resources[i].items.length
+    count += resources[i]?.items.length ?? 0
   }
   return count + itemIndex
 }
