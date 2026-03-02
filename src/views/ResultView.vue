@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getCrackingTime, getEntropyLevel } from '@/utils/entropy'
 import backgroundImage from '@/assets/images/entropie-bg.jpeg'
-import diamondImage from '@/assets/images/pngegg.png'
+import diamondImage from '@/assets/images/diamond.png'
 
 const route = useRoute()
 const router = useRouter()
