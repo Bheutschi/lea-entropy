@@ -52,10 +52,6 @@ export interface EntropyLevel {
   unlocked: boolean
 }
 
-/**
- * Détermine le niveau de sécurité et le message associé à une entropie donnée.
- * Seuil de déverrouillage : 60 bits (mot de passe considéré comme fort).
- */
 export function getEntropyLevel(entropy: number): EntropyLevel {
   if (entropy >= 80) {
     return {
@@ -107,7 +103,7 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
     return {
       status: 'Échec',
       message:
-        'Votre maison est fermé mais la clé est sur la porte. Il suffit de la tourner pour entrer.',
+        'Votre maison est fermée mais la clé est sur la porte. Il suffit de la tourner pour entrer.',
       unlocked: false,
     }
   }
@@ -115,7 +111,7 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
   return {
     status: 'Échec',
     message:
-      "La porte de votre maison grande ouverte, sans aucune protection. N'importe qui peut entrer immédiatement, sans effort.",
+      "La porte de votre maison est grande ouverte, sans aucune protection. N'importe qui peut entrer immédiatement, sans effort.",
     unlocked: false,
   }
 }
