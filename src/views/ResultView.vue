@@ -4,7 +4,9 @@ import { useRoute, useRouter } from 'vue-router'
 import { getCrackingTime, getEntropyLevel } from '@/utils/entropy'
 import backgroundImage from '@/assets/images/entropie-bg.jpeg'
 import diamondImage from '@/assets/images/diamond.png'
+import { useUnlockStore } from '@/utils/unlock.ts'
 
+const { unlock } = useUnlockStore()
 const route = useRoute()
 const router = useRouter()
 
@@ -27,6 +29,9 @@ const statusIconClass = computed(() => {
 })
 
 onMounted(() => {
+  if (level.value.unlocked) {
+    unlock()
+  }
   requestAnimationFrame(() => {
     isVisible.value = true
   })

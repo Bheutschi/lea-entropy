@@ -2,7 +2,9 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import backgroundImage from '@/assets/images/entropie-bg.jpeg'
+import { useUnlockStore } from '@/utils/unlock.ts'
 
+const { isUnlocked } = useUnlockStore()
 const router = useRouter()
 
 const showDiamond = ref(false)
@@ -11,6 +13,10 @@ const showText = ref(false)
 const showActions = ref(false)
 
 onMounted(() => {
+  if (!isUnlocked.value) {
+    router.replace('/')
+    return
+  }
   setTimeout(() => {
     showDiamond.value = true
   }, 100)
