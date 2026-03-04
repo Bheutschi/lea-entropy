@@ -24,26 +24,31 @@ onMounted(() => {
 
       <div class="explication__body">
         <p>
-          L'entropie de Shannon, issue de la théorie de l'information, mesure la quantité
-          d'incertitude ou d'aléa dans un système. Appliquée aux mots de passe, elle permet
-          d'évaluer leur robustesse face aux tentatives de piratage.
+          Bienvenue dans une expérience où la bijouterie rencontre la théorie de l'information. Ce
+          projet explore une frontière invisible : celle qui sépare nos biens les plus précieux de
+          leur vulnérabilité numérique.
         </p>
 
         <p>
-          Plus l'entropie d'un mot de passe est élevée, plus il est difficile pour un ordinateur de
-          le deviner. Cette entropie se mesure en bits et dépend de la longueur du mot de passe et
-          de la diversité des caractères utilisés.
+          À l’image d'un coffre-fort moderne, ce bijou ne livre son secret qu'à travers la solidité
+          d'une clé immatérielle. Cette démarche artistique vise à matérialiser l'importance
+          cruciale de la sécurité de nos données personnelles dans le monde physique.
         </p>
 
         <p>
-          À travers ce bijou, ce projet explore le lien entre sécurité numérique et objet physique,
-          afin de sensibiliser à l'importance de protéger ses données personnelles.
+          Pour matérialiser ce concept, le mécanisme d'ouverture du bijou repose sur l'entropie de
+          Shannon. Issue de la théorie de l'information, l'entropie mesure la quantité d'incertitude
+          ou d'aléa dans un système. Appliquée aux mots de passe, elle permet d'évaluer leur
+          robustesse face aux tentatives de piratage : plus l'entropie d'un mot de passe est élevée,
+          plus vos données sont sécurisées. Cette valeur, mesurée en bits, dépend directement de la
+          longueur de la combinaison et de la diversité des caractères utilisés.
         </p>
 
         <div class="explication__callout">
           <p>
-            Pour découvrir le diamant, vous devez entrer un mot de passe avec une entropie
-            suffisamment élevée.
+            Pour déverrouiller le bijou et accéder au secret qu’il renferme, un mot de passe
+            quelconque avec une entropie suffisamment élevée doit être saisi. Tant que votre
+            proposition ne sera pas jugée assez robuste, le secret restera inaccessible.
           </p>
         </div>
       </div>
