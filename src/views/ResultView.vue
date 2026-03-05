@@ -165,7 +165,9 @@ onMounted(() => {
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
             <span class="tooltip-text"
-              >Estimation basée sur 1 ordinateur standard ciblant l'algorithme Argon2.</span
+              >Estimation basée sur le pire scénario réaliste : un site qui protège mal vos données
+              et un pirate équipé d'un ordinateur très puissant capable de tester 10 milliards de
+              combinaisons par seconde.</span
             >
           </span>
         </p>
