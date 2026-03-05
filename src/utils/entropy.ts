@@ -18,22 +18,17 @@ export function calculateEntropy(password: string): number {
   return Math.floor(password.length * Math.log2(poolSize))
 }
 
-export type HashAlgorithm = 'md5' | 'sha256' | 'pbkdf2' | 'bcrypt' | 'argon2'
-
-export function getCrackingTime(entropy: number, algo: HashAlgorithm = 'argon2'): string {
-  const speeds: Record<HashAlgorithm, number> = {
-    md5: 100e9,
-    sha256: 25e9,
-    pbkdf2: 1e6,
-    bcrypt: 100e3,
-    argon2: 10e3,
-  }
-
-  const guessesPerSecond = speeds[algo]
+/**
+ * Estime le temps de cassage par force brute.
+ * Modèle : attaquant motivé avec cluster GPU (~1 milliard d'essais/sec).
+ */
+export function getCrackingTime(entropy: number): string {
+  const guessesPerSecond = 10e9
   const totalGuesses = Math.pow(2, entropy)
   const seconds = totalGuesses / guessesPerSecond
 
-  if (seconds < 1) return 'Instantané'
+  if (seconds < 0.001) return 'Instantané'
+  if (seconds < 1) return "Moins d'une seconde"
   if (seconds < 60) return `${Math.round(seconds)} secondes`
   if (seconds < 3600) return `${Math.round(seconds / 60)} minutes`
   if (seconds < 86400) return `${Math.round(seconds / 3600)} heures`
