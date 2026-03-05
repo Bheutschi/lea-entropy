@@ -52,6 +52,8 @@ export interface EntropyLevel {
   unlocked: boolean
 }
 
+const RETRY_SUFFIX = "\n\n Il faut réessayer, le mot de passe n'a pas assez d'entropie."
+
 export function getEntropyLevel(entropy: number): EntropyLevel {
   if (entropy >= 80) {
     return {
@@ -65,27 +67,30 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
 
   if (entropy > 69) {
     return {
-      status: 'Fort',
+      status: 'Échec',
       message:
-        "Votre maison est protégée par une porte blindée. Seuls des moyens exceptionnels permettraient d'y entrer, après un très long effort.",
+        "Votre maison est protégée par une porte blindée. Seuls des moyens exceptionnels permettraient d'y entrer, après un très long effort." +
+        RETRY_SUFFIX,
       unlocked: false,
     }
   }
 
   if (entropy > 59) {
     return {
-      status: 'Moyen',
+      status: 'Échec',
       message:
-        "Votre porte est solide et votre serrure est fiable. Entrer devient difficile, mais reste possible pour quelqu'un de déterminé.",
+        "Votre porte est solide et votre serrure est fiable. Entrer devient difficile, mais reste possible pour quelqu'un de déterminé." +
+        RETRY_SUFFIX,
       unlocked: false,
     }
   }
 
   if (entropy > 49) {
     return {
-      status: 'Faible',
+      status: 'Échec',
       message:
-        'Votre maison est fermée à clé, mais un cambrioleur équipé pourrait entrer avec un peu de temps et les bons outils.',
+        'Votre maison est fermée à clé, mais un cambrioleur équipé pourrait entrer avec un peu de temps et les bons outils.' +
+        RETRY_SUFFIX,
       unlocked: false,
     }
   }
@@ -94,7 +99,8 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
     return {
       status: 'Échec',
       message:
-        'Votre porte est fermée à clé, mais vous utilisez une serrure simple que presque tout le monde peut crocheter rapidement.',
+        'Votre porte est fermée à clé, mais vous utilisez une serrure simple que presque tout le monde peut crocheter rapidement.' +
+        RETRY_SUFFIX,
       unlocked: false,
     }
   }
@@ -103,7 +109,8 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
     return {
       status: 'Échec',
       message:
-        'Votre maison est fermée mais la clé est sur la porte. Il suffit de la tourner pour entrer.',
+        'Votre maison est fermée mais la clé est sur la porte. Il suffit de la tourner pour entrer.' +
+        RETRY_SUFFIX,
       unlocked: false,
     }
   }
@@ -111,7 +118,8 @@ export function getEntropyLevel(entropy: number): EntropyLevel {
   return {
     status: 'Échec',
     message:
-      "La porte de votre maison est grande ouverte, sans aucune protection. N'importe qui peut entrer immédiatement, sans effort.",
+      "La porte de votre maison est grande ouverte, sans aucune protection. N'importe qui peut entrer immédiatement, sans effort." +
+      RETRY_SUFFIX,
     unlocked: false,
   }
 }
